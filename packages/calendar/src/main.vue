@@ -1,34 +1,34 @@
 <template>
   <div class="el-calendar">
-<!--    <div class="el-calendar__header">-->
-<!--      <div class="el-calendar__title">-->
-<!--        {{ i18nDate }}-->
-<!--      </div>-->
-<!--      <div-->
-<!--        class="el-calendar__button-group"-->
-<!--        v-if="validatedRange.length === 0">-->
-<!--        <el-button-group>-->
-<!--          <el-button-->
-<!--            type="plain"-->
-<!--            size="mini"-->
-<!--            @click="selectDate('prev-month')">-->
+    <div class="el-calendar__header">
+      <div
+        class="el-calendar__button-group"
+        v-if="validatedRange.length === 0">
+        <el-button-group>
+          <el-button
+            type="plain"
+            size="mini"
+            @click="selectDate('prev-month')">
 <!--            {{ t('el.datepicker.prevMonth') }}-->
-<!--          </el-button>-->
-<!--          <el-button-->
-<!--            type="plain"-->
-<!--            size="mini"-->
-<!--            @click="selectDate('today')">-->
+              <i class="el-icon-caret-left"></i>
+          </el-button>
+          <el-button
+            type="plain"
+            size="mini"
+            @click="selectDate('today')">
 <!--            {{ t('el.datepicker.today') }}-->
-<!--          </el-button>-->
-<!--          <el-button-->
-<!--            type="plain"-->
-<!--            size="mini"-->
-<!--            @click="selectDate('next-month')">-->
+              {{ i18nDate }}
+          </el-button>
+          <el-button
+            type="plain"
+            size="mini"
+            @click="selectDate('next-month')">
 <!--            {{ t('el.datepicker.nextMonth') }}-->
-<!--          </el-button>-->
-<!--        </el-button-group>-->
-<!--      </div>-->
-<!--    </div>-->
+              <i class="el-icon-caret-right"></i>
+          </el-button>
+        </el-button-group>
+      </div>
+    </div>
     <div
       class="el-calendar__body"
       v-if="validatedRange.length === 0"

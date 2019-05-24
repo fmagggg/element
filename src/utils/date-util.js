@@ -1,7 +1,7 @@
 import fecha from 'element-ui/src/utils/date';
 import { t } from 'element-ui/src/locale';
 
-const weeks = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+const weeks = [ 'sat', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri' ];
 const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
 const newArray = function(start, end) {

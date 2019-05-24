@@ -62,7 +62,12 @@ export default {
 
     cellRenderProxy({ text, type }) {
       let render = this.elCalendar.$scopedSlots.dateCell;
-      if (!render) return <span>{ text }</span>;
+      let status = true;
+      let statusList = this.statusList;
+      if (statusList.indexOf(text) !== -1) status = false;
+      if (!render && type === 'current' && status === true) return <span>{ text }<div style="height:5px;width:5px;background:#02C365;border-radius:50%;margin-left:13px"></div></span>;
+      if (!render && type === 'current' && status === false) return <span>{ text }<div style="height:5px;width:5px;background:red;border-radius:50%;margin-left:13px"></div></span>;
+      if (!render && type !== 'current') return <span>{ text }</span>;
 
       const day = this.getFormateDate(text, type);
       const date = new Date(day);
@@ -119,7 +124,7 @@ export default {
         const date = this.date;
         let firstDay = getFirstDayOfMonth(date);
         firstDay = firstDay === 0 ? 7 : firstDay;
-        const prevMonthDays = getPrevMonthLastDays(date, firstDay - 1).map(day => ({
+        const prevMonthDays = getPrevMonthLastDays(date, firstDay).map(day => ({
           text: day,
           type: 'prev'
         }));
@@ -141,7 +146,8 @@ export default {
   data() {
     const dayNames = getI18nSettings().dayNames;
     return {
-      DAYS: dayNames.slice(1).concat(dayNames[0])
+      DAYS: dayNames.slice(1).concat(dayNames[0]),
+      statusList: [ 15, 19, 23, 26]// 用户未XX的日期
     };
   },
 
@@ -155,7 +161,7 @@ export default {
       <table
         class={{
           'el-calendar-table': true,
-          'is-range': this.isInRange
+          'is-range': this.isInRange0
         }}
         cellspacing="0"
         cellpadding="0">
