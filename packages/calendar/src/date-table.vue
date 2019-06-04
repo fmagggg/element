@@ -13,6 +13,7 @@ export default {
         return validateRangeInOneMonth(start, end);
       }
     },
+    chuqinList: Array,
     date: Date,
     hideHeader: Boolean
   },
@@ -147,7 +148,7 @@ export default {
     const dayNames = getI18nSettings().dayNames;
     return {
       DAYS: dayNames.slice(1).concat(dayNames[0]),
-      statusList: [ 15, 19, 23, 26]// 用户未XX的日期
+      statusList: this.chuqinList// 用户未XX的日期
     };
   },
 

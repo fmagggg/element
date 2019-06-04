@@ -36,6 +36,7 @@
       <date-table
         :date="date"
         :selected-day="realSelectedDay"
+        :chuqin-list="dailyTaskList"
         @pick="pickDay" />
     </div>
     <div
@@ -48,6 +49,7 @@
         :date="range[0]"
         :selected-day="realSelectedDay"
         :range="range"
+        :chuqin-list="dailyTaskList"
         :hide-header="index !== 0"
         @pick="pickDay" />
     </div>
@@ -74,6 +76,7 @@ export default {
 
   props: {
     value: [Date, String, Number],
+    dailyStatusTaskList: Array,
     range: {
       type: Array,
       validator(range) {
@@ -244,7 +247,8 @@ export default {
   data() {
     return {
       selectedDay: '',
-      now: new Date()
+      now: new Date(),
+      dailyTaskList: this.dailyStatusTaskList
     };
   }
 };
